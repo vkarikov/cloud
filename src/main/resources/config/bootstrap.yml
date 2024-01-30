@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: clouder
+  profiles:
+    active: composite
+  cloud:
+    config:
+      server:
+        bootstrap: true
+        prefix: /config
+        composite:
+          - type: jdbc
+            sql: SELECT `KEY`, `VALUE` from PROPERTIES where APPLICATION= ? and PROFILE= ? and LABEL= ?
+
+  datasource:
+    url: jdbc:mysql://localhost/clouder
+    username: root
+    password: clouder

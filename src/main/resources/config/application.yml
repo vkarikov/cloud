@@ -1,0 +1,30 @@
+my:
+  prop: 33
+  prop2: 44
+
+#logging:
+#  level:
+#    org:
+#      springframework: debug
+logging:
+  level:
+    org.springframework: info
+    sql: debug
+    org.springframework.jdbc.core: TRACE
+
+spring:
+  application:
+    name: clouder
+  profiles:
+    active: dev
+  flyway:
+    baseline-on-migrate: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+#    bus:
+#      enabled: true
